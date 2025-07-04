@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +99,72 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Orbitron", monospace;
+  }
+
+  /* Floating coins animation */
+  @keyframes floatCoin {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+  }
+
+  .floating-coin {
+    animation: floatCoin 3s ease-in-out infinite;
+  }
+
+  /* Glowing effect */
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 5px #ff6b35,
+        0 0 10px #ff6b35,
+        0 0 15px #ff6b35;
+    }
+    50% {
+      box-shadow:
+        0 0 10px #ff6b35,
+        0 0 20px #ff6b35,
+        0 0 30px #ff6b35;
+    }
+  }
+
+  .glow-effect {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Spin animation for case opening */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spin-slow {
+    animation: spin-slow 2s linear infinite;
+  }
+
+  /* Falling coins animation */
+  @keyframes fallCoin {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .fall-coin {
+    animation: fallCoin 4s linear infinite;
   }
 }
